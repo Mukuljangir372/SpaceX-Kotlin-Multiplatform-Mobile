@@ -1,10 +1,11 @@
 plugins {
-    kotlin("multiplatform")
-    kotlin("native.cocoapods")
-    id("com.android.library")
+    kotlin(Plugins.Common.multiplatform)
+    kotlin(Plugins.Common.nativeCocoapods)
+    kotlin(Plugins.Common.kotlinSerialization)
+    id(Plugins.Android.library)
 }
 
-version = "1.0"
+version = Config.Shared.version
 
 kotlin {
     android()
@@ -18,15 +19,20 @@ kotlin {
         ios.deploymentTarget = "14.1"
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "shared"
+            baseName = Config.Shared.name
         }
     }
     
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.common.Libs.coroutines)
+                implementation(libs.common.Libs.kotlinSerialization)
+            }
+        }
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(kotlin(libs.common.TestLibs.test))
             }
         }
         val androidMain by getting
@@ -57,7 +63,7 @@ android {
     compileSdk = 32
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdk = 24
-        targetSdk = 32
+        minSdk = Config.Android.minSdk
+        targetSdk = Config.Android.targetSdk
     }
 }

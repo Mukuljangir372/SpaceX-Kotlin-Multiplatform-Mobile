@@ -1,27 +1,27 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    id(Plugins.Android.application)
+    kotlin(Plugins.Android.android)
 }
 
 android {
-    compileSdk = 32
+    compileSdk = Config.Android.compileSdk
     defaultConfig {
-        applicationId = "com.mukul.jan.spacex.android"
-        minSdk = 24
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Config.Android.id
+        minSdk = Config.Android.minSdk
+        targetSdk = Config.Android.targetSdk
+        versionCode = Config.Android.version
+        versionName = Config.Android.versionName
     }
     buildTypes {
-        getByName("release") {
+        getByName(BuildTypes.Android.release) {
             isMinifyEnabled = false
         }
     }
 }
 
 dependencies {
-    implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation(project(Modules.Common.shared))
+    implementation(libs.android.Libs.material)
+    implementation(libs.android.Libs.appcompat)
+    implementation(libs.android.Libs.constraintLayout)
 }

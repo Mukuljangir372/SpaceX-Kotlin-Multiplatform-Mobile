@@ -9,3 +9,4 @@ pluginManagement {
 rootProject.name = "SpaceX"
 include(":androidApp")
 include(":shared")
+
