@@ -21,7 +21,7 @@ android {
 
 dependencies {
     implementation(project(Modules.Common.shared))
-    implementation(libs.android.Libs.material)
-    implementation(libs.android.Libs.appcompat)
-    implementation(libs.android.Libs.constraintLayout)
+    implementation(Libs.AndroidSupport.appcompat)
+    implementation(Libs.AndroidX.material)
+    implementation(Libs.AndroidX.constraintLayout)
 }

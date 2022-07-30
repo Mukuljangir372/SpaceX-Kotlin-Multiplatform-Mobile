@@ -26,16 +26,22 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(libs.common.Libs.coroutines)
-                implementation(libs.common.Libs.kotlinSerialization)
+                implementation(Libs.Coroutines.core)
+                implementation(Libs.Serialization.kotlinSerialization)
+                implementation(Libs.Network.ktorCore)
+                implementation(Libs.Network.ktorSerialization)
             }
         }
         val commonTest by getting {
             dependencies {
-                implementation(kotlin(libs.common.TestLibs.test))
+                implementation(kotlin(TestLibs.Shared.test))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation(Libs.Network.Android.ktorClient)
+            }
+        }
         val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -45,6 +51,9 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation(Libs.Network.Ios.ktorClient)
+            }
         }
         val iosX64Test by getting
         val iosArm64Test by getting
