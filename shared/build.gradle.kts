@@ -3,6 +3,7 @@ plugins {
     kotlin(Plugins.Common.nativeCocoapods)
     kotlin(Plugins.Common.kotlinSerialization)
     id(Plugins.Android.library)
+    id(Plugins.Common.sqlDelight)
 }
 
 version = Config.Shared.version
@@ -24,12 +25,23 @@ kotlin {
     }
     
     sourceSets {
+        val androidTest by getting
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
+
         val commonMain by getting {
             dependencies {
                 implementation(Libs.Coroutines.core)
                 implementation(Libs.Serialization.kotlinSerialization)
+
                 implementation(Libs.Network.ktorCore)
                 implementation(Libs.Network.ktorSerialization)
+
+                implementation(Libs.Storage.sqlDelight)
             }
         }
         val commonTest by getting {
@@ -40,12 +52,9 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(Libs.Network.Android.ktorClient)
+                implementation(Libs.Storage.Android.sqlDelight)
             }
         }
-        val androidTest by getting
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
         val iosMain by creating {
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
@@ -53,11 +62,9 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
                 implementation(Libs.Network.Ios.ktorClient)
+                implementation(Libs.Storage.Ios.sqlDelight)
             }
         }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
         val iosTest by creating {
             dependsOn(commonTest)
             iosX64Test.dependsOn(this)

@@ -5,6 +5,7 @@ object Plugins {
         val multiplatform by lazy { "multiplatform" }
         val nativeCocoapods by lazy { "native.cocoapods" }
         val kotlinSerialization by lazy { "plugin.serialization" }
+        val sqlDelight by lazy { "com.squareup.sqldelight" }
     }
 
     object Android {

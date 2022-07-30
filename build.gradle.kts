@@ -8,6 +8,7 @@ buildscript {
         classpath(BuildSystem.Libs.kotlinGradlePlugin)
         classpath(BuildSystem.Libs.gradle)
         classpath(BuildSystem.Libs.kotlinSerialization)
+        classpath(BuildSystem.Libs.sqlDelight)
     }
 }
 
