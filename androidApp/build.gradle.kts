@@ -24,4 +24,6 @@ dependencies {
     implementation(Libs.AndroidSupport.appcompat)
     implementation(Libs.AndroidX.material)
     implementation(Libs.AndroidX.constraintLayout)
+    implementation(Libs.Coroutines.core)
+    implementation(Libs.Coroutines.Android.android)
 }

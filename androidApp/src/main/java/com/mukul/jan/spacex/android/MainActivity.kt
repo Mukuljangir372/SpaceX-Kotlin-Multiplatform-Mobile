@@ -1,9 +1,8 @@
 package com.mukul.jan.spacex.android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.mukul.jan.spacex.Greeting
-import android.widget.TextView
 
 fun greet(): String {
     return Greeting().greeting()
@@ -14,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val tv: TextView = findViewById(R.id.text_view)
-        tv.text = greet()
+
     }
 }

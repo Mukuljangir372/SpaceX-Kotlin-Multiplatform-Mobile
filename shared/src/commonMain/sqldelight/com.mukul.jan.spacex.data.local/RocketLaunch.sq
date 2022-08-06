@@ -1,0 +1,23 @@
+CREATE TABLE rocketLaunch (
+flightNumber INTEGER NOT NULL PRIMARY KEY,
+missionName TEXT
+);
+
+insertRocketLaunch:
+INSERT OR REPLACE
+INTO rocketLaunch(
+flightNumber,
+missionName
+)
+VALUES (?,?);
+
+removeAllRocketLaunches:
+DELETE FROM rocketLaunch;
+
+getRocketLaunchByFlightNumber:
+SELECT * FROM rocketLaunch
+WHERE flightNumber = :flightNumber;
+
+getAllRocketLaunches:
+SELECT * FROM rocketLaunch
+ORDER BY flightNumber DESC;

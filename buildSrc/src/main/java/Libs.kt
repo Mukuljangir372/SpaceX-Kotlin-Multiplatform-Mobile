@@ -10,6 +10,9 @@ object Libs {
         KTOR_ANDROID("1.6.5"),
         KTOR_IOS("1.6.5"),
 
+        //DI
+        KOIN("3.2.0"),
+
         // Serialization
         KOTLIN_SERIALIZATION("1.4.0-RC"),
 
@@ -46,12 +49,22 @@ object Libs {
         }
     }
 
+    object DI {
+        val koinCore by lazy { "io.insert-koin:koin-core:${Lib.KOIN.version}" }
+        object Android {
+            val koin by lazy { "io.insert-koin:koin-android:${Lib.KOIN.version}" }
+        }
+    }
+
     object Serialization {
         val kotlinSerialization by lazy { "org.jetbrains.kotlinx:kotlinx-serialization-core:${Lib.KOTLIN_SERIALIZATION.version}"}
     }
 
     object Coroutines {
         val core by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Lib.COROUTINES.version}" }
+        object Android {
+            val android by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Lib.COROUTINES.version}" }
+        }
     }
 
     object AndroidX {

@@ -42,6 +42,8 @@ kotlin {
                 implementation(Libs.Network.ktorSerialization)
 
                 implementation(Libs.Storage.sqlDelight)
+
+                api(Libs.DI.koinCore)
             }
         }
         val commonTest by getting {
@@ -81,5 +83,11 @@ android {
     defaultConfig {
         minSdk = Config.Android.minSdk
         targetSdk = Config.Android.targetSdk
+    }
+}
+
+sqldelight {
+    database("SpaceXAppDatabase") {
+        packageName = "com.mukul.jan.spacex.data.local"
     }
 }
