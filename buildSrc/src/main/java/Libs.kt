@@ -8,7 +8,7 @@ object Libs {
         // Network
         KTOR("1.6.5"),
         KTOR_ANDROID("1.6.5"),
-        KTOR_IOS("1.6.5"),
+        KTOR_IOS("2.0.3"),
 
         //DI
         KOIN("3.2.0"),
@@ -44,9 +44,11 @@ object Libs {
         val ktorSerialization by lazy { "io.ktor:ktor-client-serialization:${Lib.KTOR.version}" }
         object Android {
             val ktorClient by lazy { "io.ktor:ktor-client-android:${Lib.KTOR_ANDROID.version}" }
+            val okhttp by lazy { "io.ktor:ktor-client-okhttp:${Lib.KTOR_ANDROID.version}" }
         }
         object Ios {
             val ktorClient by lazy { "io.ktor:ktor-client-ios:${Lib.KTOR_IOS.version}" }
+            val ktorDarwinClient by lazy { "io.ktor:ktor-client-darwin:${Lib.KTOR_IOS.version}" }
         }
     }
 
