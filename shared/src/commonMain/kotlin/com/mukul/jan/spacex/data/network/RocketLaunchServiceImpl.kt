@@ -4,7 +4,6 @@ import com.mukul.jan.spacex.data.network.model.NetworkRocketLaunch
 import io.ktor.client.*
 import io.ktor.client.request.*
 
-
 class RocketLaunchServiceImpl(
     private val httpClient: HttpClient
 ) : RocketLaunchService {

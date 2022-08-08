@@ -12,6 +12,8 @@ object Plugins {
         val android by lazy { "android" }
         val application by lazy { "com.android.application" }
         val library by lazy { "com.android.library" }
+        val kotlinKapt by lazy { "kotlin-kapt" }
+        val kotlinAndroid by lazy { "org.jetbrains.kotlin.android" }
     }
 
 }

@@ -24,6 +24,7 @@ object Libs {
         CONSTRAINT_LAYOUT("2.1.0"),
 
         // Android Support
+        CORE_KTX("1.7.0"),
         APP_COMPAT("1.3.1"),
 
     }
@@ -73,6 +74,7 @@ object Libs {
     }
 
     object AndroidSupport {
+        val coreKtx by lazy { "androidx.core:core-ktx:${Lib.CORE_KTX.version}" }
         val appcompat by lazy { "androidx.appcompat:appcompat:${Lib.APP_COMPAT.version}" }
     }
 
